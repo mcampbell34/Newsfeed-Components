@@ -146,12 +146,17 @@ function articleMaker(article){
     span.textContent = "+"; 
     div.append(span); 
 
+    span.addEventListener('click', (event) => {if (div.style.display === "none") {
+      div.style.display = "block";
+    };
 
-    return div;   
-}; 
 
-let article = document.querySelector('.articles'); 
+    return div;
+
+    
+}); 
+
+let articles = document.querySelector('.articles'); 
 data.forEach(item => {
-  article.append(articleMaker(item))
-})
-
+  articles.append(articleMaker(item))
+}) 
