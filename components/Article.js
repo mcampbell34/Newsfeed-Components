@@ -121,51 +121,37 @@ function articleMaker(article){
     div.classList.add = ("articles");
 
   const title = document.createElement('h2'); 
-  const titleofArticle = title.data;
-  title.textContent = titleofArticle;
-    
+  title.textContent = article.title; 
+  div.append(title); 
 
-  // const date = date
-  // const p0 = document.createElement('p');
-  //   p0.textContent = date.data;
-  //   p0.classList.add = ('date');
-    
-  const firstParagraph = data.firstParagraph; 
-  const p1 = document.createElement('p');
-  p1.textContent = p1.firstParagraph; 
+  const date = document.createElement('p');
+    date.classList.add = ("date"); 
+    date.textContent = article.date;
+    div.append(date); 
+  
+  const firstParagraph = document.createElement('p'); 
+    firstParagraph.textContent = article.firstParagraph; 
+    div.append(firstParagraph); 
 
-  const secondParagraph = data.secondParagraph;
-  const p2 = document.createElement('p'); 
+  const secondParagraph = document.createElement('p');
+    secondParagraph.textContent = article.secondParagraph;
+    div.append(secondParagraph); 
 
-  const thirdParagraph = data.thirdParagraph
-  const p3 = document.createElement('p'); 
+  const thirdParagraph = document.createElement('p'); 
+    thirdParagraph.textContent = article.thirdParagraph; 
+    div.append(thirdParagraph); 
 
-  const span = document.createElement('span');
-    span.classList.add('expandButton');
-    span.textContent = '+'; 
-
-  span.addEventListener('click', function (e) {
-    articles.classList.toggle('article-open'); 
-
+  const span = document.createElement('button'); 
+    span.classList.add = ("expandButton"); 
+    span.textContent = "+"; 
+    div.append(span); 
 
 
-  article.appendChild(title); 
-  article.appendChild(p1); 
-  article.appendChild(p2); 
-  article.appendChild(p3); 
-  article.appendChild(span); 
-
-  })
-  return articleMaker;
+    return div;   
 }; 
 
-let article = document.getElementById('articles'); 
+let article = document.querySelector('.articles'); 
+data.forEach(item => {
+  article.append(articleMaker(item))
+})
 
-let firstArticle = articleMaker(data[0]);
-
-let secondArticle = articleMaker(data[1]);
-
-article.appendChild(firstArticle);
-article.appendChild(firstArticle);
-
-/// Need to get extra help on this since I'm going a very long rabit hole /// 
