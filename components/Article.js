@@ -3,7 +3,7 @@
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
 const data = [
   {
-    title: 'Lambda School Students: "We\'re the best!"',
+    title: 'Lambda School Students: "Were the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
@@ -109,8 +109,63 @@ const data = [
   Step 3: Don't forget to return something from your function!
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+  to create a div.article element and append it to the DOM inside div.articles (see index.hfunttml).
 
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(article){
+  
+  const div = document.createElement('div');
+    div.classList.add = ("articles");
+
+  const title = document.createElement('h2'); 
+  const titleofArticle = title.data;
+  title.textContent = titleofArticle;
+    
+
+  // const date = date
+  // const p0 = document.createElement('p');
+  //   p0.textContent = date.data;
+  //   p0.classList.add = ('date');
+    
+  const firstParagraph = data.firstParagraph; 
+  const p1 = document.createElement('p');
+  p1.textContent = p1.firstParagraph; 
+
+  const secondParagraph = data.secondParagraph;
+  const p2 = document.createElement('p'); 
+
+  const thirdParagraph = data.thirdParagraph
+  const p3 = document.createElement('p'); 
+
+  const span = document.createElement('span');
+    span.classList.add('expandButton');
+    span.textContent = '+'; 
+
+  span.addEventListener('click', function (e) {
+    articles.classList.toggle('article-open'); 
+
+
+
+  article.appendChild(title); 
+  article.appendChild(p1); 
+  article.appendChild(p2); 
+  article.appendChild(p3); 
+  article.appendChild(span); 
+
+  })
+  return articleMaker;
+}; 
+
+let article = document.getElementById('articles'); 
+
+let firstArticle = articleMaker(data[0]);
+
+let secondArticle = articleMaker(data[1]);
+
+article.appendChild(firstArticle);
+article.appendChild(firstArticle);
+
+/// Need to get extra help on this since I'm going a very long rabit hole /// 
