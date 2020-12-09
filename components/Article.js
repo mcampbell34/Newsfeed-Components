@@ -95,12 +95,12 @@ const data = [
   and returns a DOM node looking like the one below:
 
   <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+      <h2>{title of the article}</h2>
+      <p class="date">{date of the article}</p>
 
-    {three separate paragraph elements}
+      {three separate paragraph elements}
 
-    <span class="expandButton">+</span>
+   <span class="expandButton">+</span>
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
@@ -114,49 +114,50 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
-
 function articleMaker(article){
   
-  const div = document.createElement('div');
-    div.classList.add = ("articles");
-
-  const title = document.createElement('h2'); 
-  title.textContent = article.title; 
-  div.append(title); 
-
-  const date = document.createElement('p');
-    date.classList.add = ("date"); 
-    date.textContent = article.date;
-    div.append(date); 
   
-  const firstParagraph = document.createElement('p'); 
+    const div = document.createElement('div');
+    const title = document.createElement('h2'); 
+    const date = document.createElement('p');
+    const firstParagraph = document.createElement('p'); 
+    const secondParagraph = document.createElement('p');
+    const thirdParagraph = document.createElement('p'); 
+    const span = document.createElement('span'); 
+
+
+
+    div.classList.add("article"); 
+    date.classList.add("date"); 
+    span.classList.add("expandButton"); 
+
+
+    title.textContent = article.title; 
     firstParagraph.textContent = article.firstParagraph; 
-    div.append(firstParagraph); 
-
-  const secondParagraph = document.createElement('p');
     secondParagraph.textContent = article.secondParagraph;
-    div.append(secondParagraph); 
-
-  const thirdParagraph = document.createElement('p'); 
     thirdParagraph.textContent = article.thirdParagraph; 
-    div.append(thirdParagraph); 
-
-  const span = document.createElement('button'); 
-    span.classList.add = ("expandButton"); 
+    date.textContent = article.date;
     span.textContent = "+"; 
+
+    div.append(title); 
+    div.append(date); 
+    div.append(firstParagraph); 
+    div.append(secondParagraph); 
+    div.append(thirdParagraph); 
     div.append(span); 
-
-    span.addEventListener('click', (event) => {if (div.style.display === "none") {
-      div.style.display = "block";
-    };
-
+  
+    span.addEventListener("click", function () {
+    div.classList.toggle("article-open");
+    });
+    
 
     return div;
+}; 
 
-    
-}); 
 
-let articles = document.querySelector('.articles'); 
+let article = document.querySelector('.articles'); 
 data.forEach(item => {
-  articles.append(articleMaker(item))
-}) 
+  article.append(articleMaker(item))
+})
+
+
